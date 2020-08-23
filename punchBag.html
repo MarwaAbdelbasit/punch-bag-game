@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Punch bag game</title>
+    <link rel="stylesheet" href="css\punchBag.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="game">
+      <!-- image -->
+      <div class="bag">
+        <img v-bind:src="bag" v-if="ended == false">
+        <img v-bind:src="bagBurst" v-if="ended">
+      </div>
+
+      <!-- health -->
+      <div class="health">
+        <div v-bind:style="{width: health + '%'}"></div>
+      </div>
+
+      <!-- buttons -->
+      <div class="buttons">
+        <button v-on:click="punch" v-show="!ended">Punch</button>
+        <button v-on:click="restart">Restart</button>
+      </div>
+    </div>
+
+    <audio src="audio\Explosion.mp3" id="bomb"></audio>
+    <audio src="audio\PUNCH.mp3" id="punch"></audio>
+
+    <script type="text/javascript" src="js\punchBag.js"></script>
+  </body>
+</html>
